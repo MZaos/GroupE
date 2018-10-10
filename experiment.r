@@ -64,8 +64,8 @@ result <- data.frame(predicted = character(), actual = character(), model = char
 numExperiments <- 30
 
 for (i in 1:numExperiments) {
-  print(i)
-  index <- createDataPartition(df.base$Class, p = 0.5, list = F)
+  print(i)#partition assignated to training changed from 0.5 to 0.7
+  index <- createDataPartition(df.base$Class, p = 0.7, list = F)
   
   # Split the data into a training set and a test set for the baseline model
   trainSet <- df.base[index, ]
