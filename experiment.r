@@ -25,8 +25,8 @@ corpus %<>%
 # and generate a document-term matrix, weighted by tf-idf.
 # The DT matrix is converted to a data frame and downsampled to match
 # the most infrequent class.
-sparsity <- 0.8
-options <- list(weighting = weightTfIdf)
+sparsity <- 0.9
+options <- list(weighting = weightTfIdf, normalize=TRUE)
 matrix <- DocumentTermMatrix(corpus, control = options) %>% removeSparseTerms(sparsity)
 dtm <- as.data.frame(as.matrix(matrix))
 dtm$Class <- rep(categories, sizes) %>% as.factor
@@ -65,7 +65,7 @@ numExperiments <- 30
 
 for (i in 1:numExperiments) {
   print(i)#partition assignated to training changed from 0.5 to 0.7
-  index <- createDataPartition(df.base$Class, p = 0.7, list = F)
+  index <- createDataPartition(df.base$Class, p = 0.5, list = F)
   
   # Split the data into a training set and a test set for the baseline model
   trainSet <- df.base[index, ]
