@@ -25,7 +25,7 @@ corpus %<>%
 # and generate a document-term matrix, weighted by tf-idf.
 # The DT matrix is converted to a data frame and downsampled to match
 # the most infrequent class.
-sparsity <- 0.9
+sparsity <- 0.7
 options <- list(weighting = weightTfIdf)
 matrix <- DocumentTermMatrix(corpus, control = options) %>% removeSparseTerms(sparsity)
 dtm <- as.data.frame(as.matrix(matrix))
