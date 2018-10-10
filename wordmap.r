@@ -60,4 +60,4 @@ ggplot(tdf, aes(x = x, y = y, label = term)) + geom_text()
 #I uncommented the following 2 lines 
 
 hc <- hclust(distances)
-plot(hc, hang = -2)
+plot(hc, hang = -1222)
